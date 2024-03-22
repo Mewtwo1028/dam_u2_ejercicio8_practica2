@@ -10,7 +10,7 @@ class Liberar extends StatefulWidget {
 
 class _LiberarState extends State<Liberar> {
   ListaPokemon lp = ListaPokemon();
-  int? selectedIndex; // Índice del Pokémon seleccionado
+  int? selectedIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -54,9 +54,9 @@ class _LiberarState extends State<Liberar> {
                                     TextButton(
                                       onPressed: () {
                                         setState(() {
-                                          lp.eliminar(index); // Eliminar el Pokémon seleccionado
-                                          lp.guardarArchivo(); // Guardar la lista actualizada
-                                          selectedIndex = null; // Reiniciar el índice seleccionado
+                                          lp.eliminar(index);
+                                          lp.guardarArchivo();
+                                          selectedIndex = null;
                                         });
                                         Navigator.of(context).pop();
                                       },
@@ -76,14 +76,15 @@ class _LiberarState extends State<Liberar> {
                         ),
                         onTap: () {
                           setState(() {
-                            selectedIndex = index; // Al hacer tap en un Pokémon, se guarda su índice
+                            selectedIndex = index;
                           });
                         },
-                        selected: selectedIndex == index, // Resalta el Pokémon seleccionado
+                        selected: selectedIndex == index,
                       );
                     },
                   ),
                 ),
+                Image.asset("assets/RotomDex.png"),
               ],
             );
           }

@@ -38,8 +38,9 @@ class _LoginState extends State<Login> {
             },
             child: Text("Iniciar sesión en el Pokédex"),
           ),
-          //Verificar si los datos ingresados corresponden al usuario default
+
           Text(texto),
+          Image.asset("assets/RotomDex.png"),
         ],
       ),
     );

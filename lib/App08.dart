@@ -17,7 +17,7 @@ class App08 extends StatefulWidget {
 
 class _App08State extends State<App08> {
   final controlador = TextEditingController();
-  int _indice = 0; // Cambiado el valor inicial para que muestre el registro por defecto
+  int _indice = 0;
   ListaPokemon lpkm = ListaPokemon();
 
   @override
@@ -26,12 +26,12 @@ class _App08State extends State<App08> {
     _cargarDatos();
   }
 
-  // Método para cargar los datos desde SharedPreferences
+
   Future<void> _cargarDatos() async {
     try {
       await lpkm.cargarDatos();
       setState(() {
-        // Actualiza el estado para que el widget se reconstruya con los datos cargados
+
       });
     } catch (e) {
       print("Error al cargar los datos: $e");
@@ -45,7 +45,7 @@ class _App08State extends State<App08> {
         title: Text("Práctica 08"),
         backgroundColor: Colors.red,
       ),
-      body: _widgetOptions.elementAt(_indice), // Mostrar el widget según el índice seleccionado
+      body: _widgetOptions.elementAt(_indice),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -55,7 +55,7 @@ class _App08State extends State<App08> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text("POKÉDEX", style: TextStyle(color: Colors.white, fontSize: 20),),
-                  //Image.asset("assets/RotomDex.png"),
+                  Image.asset("assets/RotomDex.png"),
                 ],
               ),
               decoration: BoxDecoration(color: Colors.red),
@@ -72,7 +72,7 @@ class _App08State extends State<App08> {
     );
   }
 
-  // Lista de widgets correspondientes a cada ítem del BottomNavigationBar
+
   static List<Widget> _widgetOptions = <Widget>[
     Login(),
     Registrar(),
@@ -82,14 +82,13 @@ class _App08State extends State<App08> {
     Login(),
   ];
 
-  // Método para cambiar el índice del widget seleccionado en el BottomNavigationBar
   void _onItemTapped(int index) {
     setState(() {
       _indice = index;
     });
   }
 
-  // Método para construir cada elemento del Drawer
+
   Widget itemDrawer(int indice, IconData icono, String texto) {
     return ListTile(
       title: Row(
@@ -100,9 +99,9 @@ class _App08State extends State<App08> {
       ),
       onTap: () {
         setState(() {
-          _indice = indice; // Cambiar el índice al seleccionar un elemento del Drawer
+          _indice = indice;
         });
-        Navigator.pop(context); // Cierra el Drawer
+        Navigator.pop(context);
       },
     );
   }

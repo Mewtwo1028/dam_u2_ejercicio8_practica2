@@ -56,6 +56,7 @@ class _RegistrarState extends State<Registrar> {
             },
             child: Text("Guardar"),
           ),
+          Image.asset("assets/RotomDex.png"),
         ],
       ),
     );

@@ -100,7 +100,7 @@ class _ActualizarState extends State<Actualizar> {
             Expanded(
               child: FutureBuilder(
                 future:
-                    lp.cargarDatos(), // Cargar los datos de la lista de Pokémon
+                    lp.cargarDatos(),
                 builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
                     return ListView.builder(
@@ -140,6 +140,7 @@ class _ActualizarState extends State<Actualizar> {
                 },
               ),
             ),
+            Image.asset("assets/RotomDex.png"),
           ],
         ),
       ),

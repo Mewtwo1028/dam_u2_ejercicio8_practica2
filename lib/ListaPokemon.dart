@@ -5,7 +5,7 @@ class ListaPokemon {
   List<Pokemon> data = [];
 
   Pokemon toPokemon(String cod) {
-    List<String> res = cod.split("&&");
+    List res = cod.split("&&");
     Pokemon pkm = Pokemon(
       pokemon: res[0],
       pokedex: res[1],
@@ -26,13 +26,10 @@ class ListaPokemon {
 
   Future<void> cargarDatos() async {
     SharedPreferences almacen = await SharedPreferences.getInstance();
-    List<String>? buffer = almacen.getStringList("buffer");
-    if (buffer != null) {
-      data.clear();
-      buffer.forEach((element) {
-        data.add(toPokemon(element));
-      });
-    }
+    List<String> buffer = almacen.getStringList("buffer") ?? [];
+    buffer.forEach((element) {
+      data.add(toPokemon(element));
+    });
   }
 
   void nuevo(Pokemon pkm) {
